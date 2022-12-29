@@ -7,10 +7,12 @@
    entrypoint: 'bash'
    args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart-v2.1:latest .']
    secretEnv: ['USERNAME']
+   dir: 'stablediffusion-v2'
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
    args: ['-c', 'docker push $$USERNAME/runpod-sd-no-autostart-v2.1:latest']
    secretEnv: ['USERNAME']
+   dir: 'stablediffusion-v2'
  availableSecrets:
    secretManager:
    - versionName: projects/612771825738/secrets/docker-password/versions/1
