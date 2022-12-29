@@ -1,0 +1,19 @@
+ steps:
+ - name: 'gcr.io/cloud-builders/docker'
+   entrypoint: 'bash'
+   args: ['-c', 'docker login --username=$$USERNAME --password=$$PASSWORD']
+   secretEnv: ['USERNAME', 'PASSWORD']
+ - name: 'gcr.io/cloud-builders/docker'
+   entrypoint: 'bash'
+   args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart-v2.1:latest .']
+   secretEnv: ['USERNAME']
+ - name: 'gcr.io/cloud-builders/docker'
+   entrypoint: 'bash'
+   args: ['-c', 'docker push $$USERNAME/runpod-sd-no-autostart-v2.1:latest']
+   secretEnv: ['USERNAME']
+ availableSecrets:
+   secretManager:
+   - versionName: projects/612771825738/secrets/docker-password/1
+     env: 'PASSWORD'
+   - versionName: projects/612771825738/secrets/docker-username/1
+     env: 'USERNAME'
