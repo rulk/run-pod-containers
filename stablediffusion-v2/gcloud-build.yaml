@@ -13,7 +13,7 @@
    secretEnv: ['USERNAME']
  availableSecrets:
    secretManager:
-   - versionName: projects/612771825738/secrets/docker-password/latest
+   - versionName: projects/612771825738/secrets/docker-password/versions/1
      env: 'PASSWORD'
-   - versionName: projects/612771825738/secrets/docker-username/latest
+   - versionName: projects/612771825738/secrets/docker-username/versions/1
      env: 'USERNAME'
