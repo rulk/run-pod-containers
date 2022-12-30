@@ -1,4 +1,6 @@
  timeout: 24000s
+ options:
+   diskSizeGb: '200'
  steps:
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
