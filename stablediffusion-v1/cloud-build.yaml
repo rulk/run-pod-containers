@@ -7,7 +7,7 @@
    dir: 'stablediffusion-v1'
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
-   args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart:v15 Docker2']
+   args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart:v15 -f Docker2 .']
    secretEnv: ['USERNAME']
    dir: 'stablediffusion-v1'
  - name: 'gcr.io/cloud-builders/docker'
