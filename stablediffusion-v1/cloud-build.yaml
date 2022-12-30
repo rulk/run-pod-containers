@@ -4,14 +4,15 @@
    entrypoint: 'bash'
    args: ['-c', 'docker login --username=$$USERNAME --password=$$PASSWORD']
    secretEnv: ['USERNAME', 'PASSWORD']
+   dir: 'stablediffusion-v1'
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
-   args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart:v1-5 .']
+   args: ['-c', 'docker build -t $$USERNAME/runpod-sd-no-autostart:v15 Docker2']
    secretEnv: ['USERNAME']
    dir: 'stablediffusion-v1'
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
-   args: ['-c', 'docker push $$USERNAME/runpod-sd-no-autostart:v1-5']
+   args: ['-c', 'docker push $$USERNAME/runpod-sd-no-autostart:v15']
    secretEnv: ['USERNAME']
    dir: 'stablediffusion-v1'
  availableSecrets:
